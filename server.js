@@ -8,7 +8,7 @@ app.use(cors());
 
 const socketIO = require('socket.io')(http, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: "https://aman1919.github.io/Chess-game/"
     }
 });
 
@@ -83,10 +83,8 @@ socketIO.on('connection', (socket) => {
   });
 });
 
-app.get('/api', (req, res) => {
-  res.json({
-    message: 'Hello world',
-  });
+app.get('/', (req, res) => {
+  res.send('hello chess')
 });
 
 http.listen(PORT, () => {

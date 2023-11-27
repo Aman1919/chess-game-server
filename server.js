@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const PORT = 1000;
 const http = require('http').Server(app);
 const cors = require('cors');
 const { v4: uuidV4 } = require('uuid');
 app.use(cors());
 
+const PORT =process.env.PORT || 1000;
 const socketIO = require('socket.io')(http, {
     cors: {
         origin: "https://aman1919.github.io/Chess-game/"
@@ -87,6 +87,6 @@ app.get('/', (req, res) => {
   res.send('hello chess')
 });
 
-http.listen(PORT, () => {
+http.listen(PORT,"0.0.0.0", () => {
   console.log(`Server listening on ${PORT}`);
 });
